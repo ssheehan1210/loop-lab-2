@@ -40,12 +40,12 @@ console.log(noGluten);
 const league = [{name: "NFL", players: [{name: "Tom Brady", goat: false}, {name: "Walter Payton", goat: true}]}, {name: "NBA", players: [{name: "Michael Jordan", goat: true}, {name: "Lebron James", goat: false}]},{name: "MLB", players: [{name: "Babe Ruth", goat: true}, {name: "Alex Rodriguez", goat: false}]}];
 const goatPlayers = [];
 for (i = 0; i < league.length; i++){
-	let sportLeague = league[i];
-	let sportPlayers = sportLeague.players;
-	for (x = 0; x < sportPlayers.length; x++){
-		let goatStatus = sportPlayers[x].goat;
-		if (goatStatus === true){
-			goatPlayers.push(sportPlayers[x]);
+	const sportLeague = league[i]; // redundant(1)
+	let sportPlayers = sportLeague.players; // redundant(2)
+	for (x = 0; x < sportPlayers.length; x++){ // or x < league[i].players.length;
+		const goatStatus = sportPlayers[x].goat; // redundant(3)
+		if (goatStatus === true){ // or league[i].players[x].goat;
+			goatPlayers.push(sportPlayers[x]); // or goatPlayers.push(league[i].players[x]);
 		}
 	};
 };
