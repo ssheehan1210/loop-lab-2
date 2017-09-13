@@ -33,3 +33,20 @@ for (i = 0; i < menu.length; i++){
 	}
 };
 console.log(noGluten);
+
+// Bonus Question (Hard Mode):
+// Create a new array with all the players that have a true value
+// of goat (greatest of all time) from each league.
+const league = [{name: "NFL", players: [{name: "Tom Brady", goat: false}, {name: "Walter Payton", goat: true}]}, {name: "NBA", players: [{name: "Michael Jordan", goat: true}, {name: "Lebron James", goat: false}]},{name: "MLB", players: [{name: "Babe Ruth", goat: true}, {name: "Alex Rodriguez", goat: false}]}];
+const goatPlayers = [];
+for (i = 0; i < league.length; i++){
+	let sportLeague = league[i];
+	let sportPlayers = sportLeague.players;
+	for (x = 0; x < sportPlayers.length; x++){
+		let goatStatus = sportPlayers[x].goat;
+		if (goatStatus === true){
+			goatPlayers.push(sportPlayers[x]);
+		}
+	};
+};
+console.log(goatPlayers);
